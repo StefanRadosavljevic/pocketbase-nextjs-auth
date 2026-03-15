@@ -1,3 +1,5 @@
+// src/components/pocketbase-provider.tsx
+
 "use client";
 
 import { createBrowserClient } from "@/lib/pocketbase/client";

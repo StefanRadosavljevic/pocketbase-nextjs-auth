@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile.pocketbase
     restart: unless-stopped
     ports:
-      - "8090:8090"
+      - "8091:8090"
     volumes:
       - ./pb/data:/pb/pb_data
       - ./pb/public:/pb/pb_public

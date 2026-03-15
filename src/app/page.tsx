@@ -1,3 +1,5 @@
+// src/app/page.tsx
+
 import { createServerClient } from "@/lib/pocketbase/server";
 
 export default async function Home() {

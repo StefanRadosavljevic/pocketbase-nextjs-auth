@@ -1,3 +1,5 @@
+// src/lib/pocketbase/client.ts
+
 import PocketBase from "pocketbase";
 import { TypedPocketBase } from "./types";
 

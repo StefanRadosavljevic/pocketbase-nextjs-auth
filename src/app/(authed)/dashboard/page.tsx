@@ -1,3 +1,5 @@
+// src/app/(authed)/dashboard/page.tsx
+
 import { createServerClient } from "@/lib/pocketbase/server";
 import { DashboardClient } from "./page-client";
 

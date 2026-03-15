@@ -1,3 +1,5 @@
+// src/lib/pocketbase/server.ts
+
 import { cookies } from "next/headers";
 import PocketBase, { AsyncAuthStore } from "pocketbase";
 import "server-only";

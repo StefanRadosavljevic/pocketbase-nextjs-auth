@@ -1,3 +1,5 @@
+// src/app/layout.tsx
+
 import { Navbar } from "@/components/navbar";
 import { PocketBaseProvider } from "@/components/pocketbase-provider";
 import { createServerClient } from "@/lib/pocketbase/server";

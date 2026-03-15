@@ -1,3 +1,5 @@
+// src/lib/pocketbase/middleware.ts
+
 import { NextRequest, NextResponse } from "next/server";
 import PocketBase from "pocketbase";
 import { COOKIE_NAME } from "./server";
@@ -42,7 +44,8 @@ export async function updateSession(request: NextRequest) {
   // Please adjust this to match your application's security requirements
   if (
     !client.authStore.isValid &&
-    !["/", "/login", "/register"].includes(request.nextUrl.pathname)
+    !["/", "/login", "/register"].includes(request.nextUrl.pathname) &&
+    !request.nextUrl.pathname.startsWith("/articles") // 👈 add this
   ) {
     const url = request.nextUrl.clone();
     url.pathname = "/login";

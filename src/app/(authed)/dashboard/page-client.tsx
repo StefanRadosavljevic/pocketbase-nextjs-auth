@@ -1,3 +1,5 @@
+// src/app/(authed)/dashboard/page-client.tsx
+
 "use client";
 
 import { useUser } from "@/components/pocketbase-provider";

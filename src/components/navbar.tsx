@@ -1,3 +1,5 @@
+// src/components/navbar.tsx
+
 "use client";
 
 import { logout } from "@/lib/actions/auth";
@@ -17,6 +19,9 @@ export function Navbar() {
         </div>
         <div className="navbar-end">
           <ul className="menu menu-horizontal">
+            <li>
+              <Link href="/articles">Articles</Link>  {/* 👈 here, always visible */}
+            </li>
             {user ? (
               <>
                 <li>

@@ -1,3 +1,5 @@
+// src/lib/pocketbase/stores/sync-auth-store.ts
+
 import { AuthRecord, BaseAuthStore } from "pocketbase";
 
 export type SyncSaveFunc = (serializedPayload: string) => void;
@@ -56,6 +58,6 @@ export class SyncAuthStore extends BaseAuthStore {
 
         this.save(parsed.token || "", parsed.record || parsed.model || null);
       }
-    } catch {}
+    } catch { }
   }
 }

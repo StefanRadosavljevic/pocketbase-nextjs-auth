@@ -1,3 +1,5 @@
+// src/middleware.ts
+
 import { updateSession } from "@/lib/pocketbase/middleware";
 import { NextRequest } from "next/server";
 

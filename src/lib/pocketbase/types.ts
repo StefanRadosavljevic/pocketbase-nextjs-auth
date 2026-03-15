@@ -1,3 +1,5 @@
+// src/lib/pocketbase/types.ts
+
 /**
  * This file was @generated using pocketbase-typegen
  */
@@ -111,6 +113,8 @@ export type SuperusersResponse<Texpand = unknown> = Required<SuperusersRecord> &
   AuthSystemFields<Texpand>;
 export type UsersResponse<Texpand = unknown> = Required<UsersRecord> &
   AuthSystemFields<Texpand>;
+export type ArticlesResponse<Texpand = unknown> = Required<ArticlesRecord> &
+  BaseSystemFields<Texpand>;
 
 // Types containing all Records and Responses, useful for creating typing helper functions
 
@@ -121,6 +125,7 @@ export type CollectionRecords = {
   _otps: OtpsRecord;
   _superusers: SuperusersRecord;
   users: UsersRecord;
+  articles: ArticlesRecord; // 👈 add this
 };
 
 export type CollectionResponses = {
@@ -130,7 +135,16 @@ export type CollectionResponses = {
   _otps: OtpsResponse;
   _superusers: SuperusersResponse;
   users: UsersResponse;
+  articles: ArticlesResponse; // 👈 add this
 };
+
+export type ArticlesRecord = {
+  title: string;
+  content: string;
+  created?: IsoDateString;
+  updated?: IsoDateString;
+};
+
 
 // Type for usage with type asserted PocketBase instance
 // https://github.com/pocketbase/js-sdk#specify-typescript-definitions
@@ -142,4 +156,5 @@ export type TypedPocketBase = PocketBase & {
   collection(idOrName: "_otps"): RecordService<OtpsResponse>;
   collection(idOrName: "_superusers"): RecordService<SuperusersResponse>;
   collection(idOrName: "users"): RecordService<UsersResponse>;
+  collection(idOrName: "articles"): RecordService<ArticlesResponse>; // 👈 add this
 };
