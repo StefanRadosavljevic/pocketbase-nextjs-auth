@@ -1,4 +1,7 @@
+// src/app/(unauthed)/login/page.tsx
+
 import { login } from "@/lib/actions/auth";
+import { GoogleSignInButton } from "@/components/google-sign-in-button";
 
 export default async function Login() {
   return (
@@ -19,6 +22,8 @@ export default async function Login() {
       <button type="submit" className="btn btn-primary">
         Login
       </button>
+      <div className="divider">OR</div>
+      <GoogleSignInButton />
     </form>
   );
 }

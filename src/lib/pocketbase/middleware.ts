@@ -45,7 +45,8 @@ export async function updateSession(request: NextRequest) {
   if (
     !client.authStore.isValid &&
     !["/", "/login", "/register"].includes(request.nextUrl.pathname) &&
-    !request.nextUrl.pathname.startsWith("/articles") // 👈 add this
+    !request.nextUrl.pathname.startsWith("/articles") &&
+    !request.nextUrl.pathname.startsWith("/api") // 👈 added
   ) {
     const url = request.nextUrl.clone();
     url.pathname = "/login";
