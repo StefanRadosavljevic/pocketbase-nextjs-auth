@@ -35,7 +35,7 @@ export default async function RootLayout({
       lang="en"
       className={cn(geistSans.variable, geistMono.variable, "antialiased")}
     >
-      <body>
+      <body suppressHydrationWarning={true}>
         <PocketBaseProvider
           initialToken={client.authStore.token}
           initialUser={client.authStore.record}

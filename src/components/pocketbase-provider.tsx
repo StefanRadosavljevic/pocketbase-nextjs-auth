@@ -27,7 +27,21 @@ export function PocketBaseProvider({
   initialUser: AuthRecord;
   children?: React.ReactNode;
 }) {
+  // >>> ADD THIS LOG (right at the start of the function)
+  console.log("📦 [PROVIDER] Received from server:", {
+    initialToken: initialToken ? initialToken.substring(0, 20) + "..." : "empty",
+    initialUser: initialUser?.email || initialUser?.id || "undefined",
+    hasInitialUser: !!initialUser
+  });
+
+  // >>> ADD THIS LOG (right after the line below)
   const clientRef = useRef<TypedPocketBase>(createBrowserClient());
+  console.log("🔐 [PROVIDER] Browser client authStore after create:", {
+    token: clientRef.current.authStore.token?.substring(0, 20) + "...",
+    hasRecord: !!clientRef.current.authStore.record,
+    isValid: clientRef.current.authStore.isValid
+  });
+
   clientRef.current.authStore.save(initialToken, initialUser);
 
   useEffect(() => {
@@ -35,9 +49,13 @@ export function PocketBaseProvider({
       if (clientRef.current.authStore.isValid) {
         try {
           await clientRef.current.collection("users").authRefresh();
-        } catch {
+          console.log("✅ [PROVIDER] authRefresh succeeded");
+        } catch (e) {
+          console.warn("❌ [PROVIDER] authRefresh failed:", e);
           clientRef.current.authStore.clear();
         }
+      } else {
+        console.log("⚠️ [PROVIDER] authRefresh skipped - not isValid");
       }
     }
 

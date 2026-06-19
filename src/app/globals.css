@@ -30,3 +30,14 @@
     border-color: var(--color-gray-200, currentColor);
   }
 }
+
+/* Instant feedback na klik */
+a,
+button {
+  transition: opacity 0.15s ease;
+}
+
+a:active,
+button:active {
+  opacity: 0.6;
+}
